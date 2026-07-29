@@ -1,0 +1,561 @@
+# ============================================
+# Python (Backend)
+# ============================================
+
+# Virtual Environment
+myvenv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+test.db
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff (if using)
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+
+# SageMath
+*.sage.py
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# ============================================
+# React / Node.js (Frontend)
+# ============================================
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite
+.vite/
+vite.config.js.timestamp-*
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# IDE / Editor
+# ============================================
+
+# VS Code
+.vscode/
+*.code-workspace
+.vscode-test/
+
+# IntelliJ / PyCharm / WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.sublime-settings
+.sublime/
+
+# Vim
+*.swp
+*.swo
+*~
+.~*
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================
+# Operating System
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Windows
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# Linux
+.directory
+*.swp
+*~
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Logs & Temporary Files
+# ============================================
+
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+*.tmp
+*.temp
+
+# ============================================
+# Uploads & Media
+# ============================================
+
+# Uploaded files (profile pictures, etc.)
+uploads/
+media/
+static/upload/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+*.ico
+
+# Face data (should be in database, not files)
+facial_data/
+
+# ============================================
+# Documentation
+# ============================================
+
+# Generated documentation
+docs/_build/
+htmlcov/
+site/
+
+# ============================================
+# Security / Sensitive
+# ============================================
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.env
+.env.*
+secret_key.txt
+jwt_secret.txt
+
+# ============================================
+# Testing
+# ============================================
+
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# ============================================
+# Backend specific
+# ============================================
+
+# Flask migration files (optional to ignore)
+migrations/versions/*.py
+!migrations/versions/__init__.py
+
+# SQLAlchemy
+alembic.ini
+*.db
+
+# ============================================
+# Misc
+# ============================================
+
+# Cython
+cython_debug/
+
+# Profiling
+*.prof
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Kubernetes
+*.kubeconfig
+*.kubesecret
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ============================================
+# Application specific
+# ============================================
+
+# Face recognition cache
+face_cache/
+.face_cache
+
+# OTP backup (should be in DB)
+otp_backup/
+
+# Temporary session data
+sessions/
+.temp_session
+
+# ============================================
+# Keep these files
+# ============================================
+
+# But keep these
+!.gitkeep
+!.env.example
+
+# Keep database migrations
+!migrations/versions/__init__.py
+!migrations/alembic.ini
+
+# ============================================
+# Export / Downloads (ignore but keep folder)
+# ============================================
+
+exports/
+downloads/
+*.csv
+*.xlsx
+*.xls
+*.json
+
+# ============================================
+# SSL Certificates (if any)
+# ============================================
+
+*.crt
+*.key
+*.pem
+*.csr
+*.p12
+*.pfx
+ssl/
+cert/
+
+# ============================================
+# Backup files
+# ============================================
+
+*.backup
+*.old
+*.orig
+*.rej
+*.save
+*.swp
+
+# ============================================
+# System files
+# ============================================
+
+core.*
+*.core
+*.dmp
+*.heap
+*.hprof
+
+# ============================================
+# Frontend specific (React)
+# ============================================
+
+# Build outputs
+build/
+dist/
+out/
+.next/
+.vercel/
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Testing
+coverage/
+.nyc_output/
+
+# Storybook
+storybook-static/
+
+# Environment
+.env.*
+!.env.example
+!.env.development
+
+# Performance metrics
+*.cpuprofile
+*.heapsnapshot
+*.heapdump
+
+# ============================================
+# Tailwind CSS
+# ============================================
+
+*.css.map
+*.css.map.*
+
+# ============================================
+# Error logs
+# ============================================
+
+*.error.log
+error.log
+access.log
+*.access.log
+*.debug.log
+
+# ============================================
+# Dev containers
+# ============================================
+
+.devcontainer/
+.vscode-dev/
+
+# ============================================
+# Alternative Python environment
+# ============================================
+
+.venv/
+.python-version
+pyenv.cfg
+.conda/
+.conda-env/
+
+# ============================================
+# Cache directories
+# ============================================
+
+.cache/
+.cachier/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pytype/
+.dmypy.json
+dmypy.json
+
+# ============================================
+# Code style / linting
+# ============================================
+
+.flake8
+.pylintrc
+.isort.cfg
+.black
+.mypy.ini
+.pyproject.toml
+
+# ============================================
+# Jupyter notebooks (if any)
+# ============================================
+
+*.ipynb_checkpoints/
+*.ipynb
+
+# ============================================
+# Database files
+# ============================================
+
+*.db
+*.sqlite
+*.sqlite3
+*.mysql
+*.postgresql
+*.db-shm
+*.db-wal
+
+# ============================================
+# Media files
+# ============================================
+
+*.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
+*.wmv
+
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+
+# ============================================
+# Archive files
+# ============================================
+
+*.zip
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tbz2
+*.rar
+*.7z
+*.iso
+
+# ============================================
+# Patch files
+# ============================================
+
+*.patch
+*.diff
+
+# ============================================
+# Keep this file
+# ============================================
+
+!.gitignore
+!.gitattributes
+
+# ============================================
+# GitHub specific
+# ============================================
+
+.github/
+!.github/workflows/
+!.github/ISSUE_TEMPLATE/
+!.github/PULL_REQUEST_TEMPLATE/

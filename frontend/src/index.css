@@ -1,0 +1,395 @@
+/* index.css - Global styles and CSS reset */
+
+/* Import fonts - Inter is your primary font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* CSS Reset - More comprehensive reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Set core body defaults */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: hsl(var(--background, 0 0% 100%));
+  color: hsl(var(--foreground, 222.2 84% 4.9%));
+  min-height: 100vh;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 16px;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Root element - React mounting point */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* Make buttons more consistent */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Remove default button styles in Safari */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+/* Remove inner padding and border in Firefox */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* Remove spinner from number inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Set consistent focus styles */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary, 221.2 83.2% 53.3%));
+  outline-offset: 2px;
+}
+
+/* Remove focus styles for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Make sure hidden elements are actually hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+    font-size: 12pt;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--primary, 221.2 83.2% 53.3%) / 0.2);
+  color: hsl(var(--primary, 221.2 83.2% 53.3%));
+}
+
+/* Scrollbar styling (works in WebKit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary, 210 40% 96%));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground, 215.4 16.3% 46.9%));
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground, 222.2 84% 4.9%));
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground, 215.4 16.3% 46.9%)) hsl(var(--secondary, 210 40% 96%));
+}
+
+/* Dark mode scrollbar overrides */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--secondary, 217.2 32.6% 17.5%));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground, 215 20.2% 65.1%));
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground, 210 40% 98%));
+}
+
+.dark * {
+  scrollbar-color: hsl(var(--muted-foreground, 215 20.2% 65.1%)) hsl(var(--secondary, 217.2 32.6% 17.5%));
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: hsl(var(--muted-foreground, 215.4 16.3% 46.9%) / 0.7);
+  opacity: 1;
+}
+
+.dark ::placeholder {
+  color: hsl(var(--muted-foreground, 215 20.2% 65.1%) / 0.7);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-padding-top: 80px; /* Adjust for fixed header */
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== SHAKE ANIMATION FOR ERROR MESSAGES ===== */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-6px);
+  }
+  20% {
+    transform: translateX(6px);
+  }
+  30% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  70% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  90% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out 0s 2;
+}
+
+/* Shake animation for error messages with different durations */
+.animate-shake-fast {
+  animation: shake 0.3s ease-in-out 0s 2;
+}
+
+.animate-shake-slow {
+  animation: shake 0.7s ease-in-out 0s 2;
+}
+
+/* Shake animation that runs once */
+.animate-shake-once {
+  animation: shake 0.5s ease-in-out 0s 1;
+}
+
+/* ===== END SHAKE ANIMATION ===== */
+
+/* Utility classes for common patterns */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Ensure proper focus styles for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid hsl(var(--primary, 221.2 83.2% 53.3%));
+  outline-offset: 2px;
+}
+
+/* Remove default focus styles for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent font scaling in landscape */
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  html {
+    -webkit-text-size-adjust: none;
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Prevent iOS zoom on input focus */
+    font-size: 16px;
+  }
+  
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: 221.2 83.2% 40%;
+  }
+  
+  .dark {
+    --primary: 217.2 91.2% 70%;
+  }
+  
+  * {
+    border-color: currentColor;
+  }
+  
+  button,
+  input,
+  select,
+  textarea {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Ensure proper stacking context */
+#root {
+  isolation: isolate;
+  position: relative;
+  z-index: 0;
+}

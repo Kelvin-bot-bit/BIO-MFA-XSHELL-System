@@ -1,0 +1,32 @@
+# Flask Framework
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-JWT-Extended==4.5.3
+Flask-CORS==4.0.0
+Flask-Bcrypt==1.0.1
+
+# Database
+mysql-connector-python==8.1.0
+SQLAlchemy==2.0.23
+
+# Environment & Configuration
+python-dotenv==1.0.0
+
+# Image Processing
+Pillow==10.1.0
+numpy==1.26.0
+
+# Email
+email-validator==2.0.0
+
+# Security & Cryptography
+cryptography==41.0.7
+
+# HTTP Requests
+requests==2.31.0
+
+# Utilities
+Werkzeug==2.3.7
+Jinja2==3.1.2
+
+user-agents==2.2.0

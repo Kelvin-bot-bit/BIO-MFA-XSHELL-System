@@ -1,0 +1,667 @@
+/* ./styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light mode variables */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+    
+    /* Custom colors for charts and visualizations */
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 142.1 76.2% 36.3%;
+    --chart-3: 48 96.5% 53.9%;
+    --chart-4: 0 84.2% 60.2%;
+    --chart-5: 271 81% 56%;
+    --chart-6: 330 81% 60%;
+    --chart-7: 200 98% 39%;
+    --chart-8: 30 100% 50%;
+  }
+
+  /* Dark mode variables */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    
+    /* Dark mode chart colors */
+    --chart-1: 217.2 91.2% 59.8%;
+    --chart-2: 142.1 70.6% 45.3%;
+    --chart-3: 48 96.5% 53.9%;
+    --chart-4: 0 90.6% 70.8%;
+    --chart-5: 271 81% 66%;
+    --chart-6: 330 81% 70%;
+    --chart-7: 200 90% 50%;
+    --chart-8: 30 100% 60%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Animation delays */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Modern card shadows */
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-180deg); opacity: 0; }
+  to { transform: rotate(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.5s ease-out;
+}
+
+/* Modern button styles */
+.btn-primary {
+  @apply bg-blue-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200 border border-gray-200;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-warning {
+  @apply bg-yellow-500 text-white font-medium py-3 px-6 rounded-xl hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white font-medium py-3 px-6 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+/* Input styles */
+.input-modern {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white text-gray-900 placeholder-gray-500;
+}
+
+/* Glass effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Status indicators */
+.status-active {
+  @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-pending {
+  @apply bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-inactive {
+  @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Floating animation for subtle elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, 
+              border-color 0.3s ease, 
+              color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Theme transition optimization - disable transitions on certain elements during theme switch */
+.theme-transition * {
+  transition: none !important;
+}
+
+/* ===== ADMIN DASHBOARD SPECIFIC STYLES ===== */
+
+/* Stat cards */
+.stat-card {
+  @apply bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+.stat-card-value {
+  @apply text-3xl font-bold text-gray-900;
+}
+
+.stat-card-label {
+  @apply text-gray-600 text-sm;
+}
+
+.stat-card-icon {
+  @apply p-3 rounded-2xl;
+}
+
+/* Chart containers */
+.chart-container {
+  @apply bg-white rounded-2xl p-6 border border-gray-200 shadow-sm;
+}
+
+.chart-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+/* Table styles */
+.table-container {
+  @apply bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden;
+}
+
+.table-header {
+  @apply bg-gray-50;
+}
+
+.table-header-cell {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.table-row {
+  @apply hover:bg-gray-50 transition-colors duration-200;
+}
+
+.table-cell {
+  @apply px-6 py-4 whitespace-nowrap text-sm;
+}
+
+/* Badge styles */
+.badge {
+  @apply px-2 py-1 text-xs font-medium rounded-full;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-800;
+}
+
+.badge-info {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.badge-purple {
+  @apply bg-purple-100 text-purple-800;
+}
+
+/* Progress bar styles */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-2 rounded-full transition-all duration-500;
+}
+
+.progress-bar-blue {
+  @apply bg-blue-600;
+}
+
+.progress-bar-green {
+  @apply bg-green-600;
+}
+
+.progress-bar-yellow {
+  @apply bg-yellow-500;
+}
+
+.progress-bar-red {
+  @apply bg-red-600;
+}
+
+.progress-bar-purple {
+  @apply bg-purple-600;
+}
+
+/* Location flag styles */
+.location-flag {
+  @apply text-lg mr-2 inline-block;
+}
+
+.location-name {
+  @apply text-sm font-medium text-gray-700;
+}
+
+.location-percentage {
+  @apply text-sm font-semibold text-gray-900;
+}
+
+.location-count {
+  @apply text-xs text-gray-500;
+}
+
+/* Activity log styles */
+.activity-item {
+  @apply flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200;
+}
+
+.activity-icon {
+  @apply w-5 h-5;
+}
+
+.activity-details {
+  @apply text-sm font-medium text-gray-900;
+}
+
+.activity-meta {
+  @apply text-xs text-gray-500;
+}
+
+.activity-time {
+  @apply text-sm text-gray-500;
+}
+
+/* Modal styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl p-8 shadow-2xl;
+}
+
+/* Dark mode overrides for admin dashboard */
+.dark .stat-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .stat-card-value {
+  @apply text-white;
+}
+
+.dark .stat-card-label {
+  @apply text-gray-400;
+}
+
+.dark .chart-container {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .chart-title {
+  @apply text-white;
+}
+
+.dark .table-container {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .table-header {
+  @apply bg-gray-700;
+}
+
+.dark .table-header-cell {
+  @apply text-gray-300;
+}
+
+.dark .table-row {
+  @apply hover:bg-gray-700;
+}
+
+.dark .table-cell {
+  @apply text-gray-300;
+}
+
+.dark .activity-item {
+  @apply bg-gray-700 hover:bg-gray-600;
+}
+
+.dark .activity-details {
+  @apply text-white;
+}
+
+.dark .activity-meta {
+  @apply text-gray-400;
+}
+
+.dark .activity-time {
+  @apply text-gray-400;
+}
+
+.dark .modal-content {
+  @apply bg-gray-800;
+}
+
+/* Dark mode form elements */
+.dark .btn-secondary {
+  @apply bg-gray-800 text-gray-200 border-gray-700 hover:bg-gray-700;
+}
+
+.dark .input-modern {
+  @apply bg-gray-800 border-gray-700 text-white placeholder-gray-400;
+}
+
+.dark .glass-panel {
+  background: rgba(17, 25, 40, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode status indicators */
+.dark .status-active {
+  @apply bg-green-900 bg-opacity-30 text-green-300;
+}
+
+.dark .status-pending {
+  @apply bg-yellow-900 bg-opacity-30 text-yellow-300;
+}
+
+.dark .status-inactive {
+  @apply bg-red-900 bg-opacity-30 text-red-300;
+}
+
+/* Dark mode badges */
+.dark .badge-success {
+  @apply bg-green-900 bg-opacity-30 text-green-300;
+}
+
+.dark .badge-warning {
+  @apply bg-yellow-900 bg-opacity-30 text-yellow-300;
+}
+
+.dark .badge-danger {
+  @apply bg-red-900 bg-opacity-30 text-red-300;
+}
+
+.dark .badge-info {
+  @apply bg-blue-900 bg-opacity-30 text-blue-300;
+}
+
+.dark .badge-purple {
+  @apply bg-purple-900 bg-opacity-30 text-purple-300;
+}
+
+/* Dark mode progress bars */
+.dark .progress-bar {
+  @apply bg-gray-700;
+}
+
+/* Dark mode card shadows */
+.dark .card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark .card-shadow-hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Form elements for dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  @apply bg-gray-800 border-gray-700 text-white;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  @apply text-gray-400;
+}
+
+/* Link colors for dark mode */
+.dark a.text-blue-600 {
+  @apply text-blue-400;
+}
+
+.dark a.text-blue-600:hover {
+  @apply text-blue-300;
+}
+
+/* Icon colors for dark mode */
+.dark .text-blue-600 {
+  @apply text-blue-400;
+}
+
+.dark .text-green-600 {
+  @apply text-green-400;
+}
+
+.dark .text-red-600 {
+  @apply text-red-400;
+}
+
+.dark .text-purple-600 {
+  @apply text-purple-400;
+}
+
+.dark .text-yellow-600 {
+  @apply text-yellow-400;
+}
+
+/* Background colors for dark mode */
+.dark .bg-blue-100 {
+  @apply bg-blue-900 bg-opacity-30;
+}
+
+.dark .bg-green-100 {
+  @apply bg-green-900 bg-opacity-30;
+}
+
+.dark .bg-red-100 {
+  @apply bg-red-900 bg-opacity-30;
+}
+
+.dark .bg-purple-100 {
+  @apply bg-purple-900 bg-opacity-30;
+}
+
+.dark .bg-yellow-100 {
+  @apply bg-yellow-900 bg-opacity-30;
+}
+
+/* Border colors for dark mode */
+.dark .border-blue-200 {
+  @apply border-blue-800;
+}
+
+.dark .border-green-200 {
+  @apply border-green-800;
+}
+
+.dark .border-red-200 {
+  @apply border-red-800;
+}
+
+.dark .border-purple-200 {
+  @apply border-purple-800;
+}
+
+.dark .border-yellow-200 {
+  @apply border-yellow-800;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .stat-card-value {
+    @apply text-2xl;
+  }
+  
+  .chart-container {
+    @apply p-4;
+  }
+  
+  .table-container {
+    @apply overflow-x-auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .stat-card,
+  .chart-container,
+  .table-container {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* Accessibility - focus indicators */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .floating {
+    animation: none;
+  }
+}
